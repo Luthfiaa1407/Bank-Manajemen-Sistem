@@ -15,7 +15,7 @@ Skenario Penggunaan
 
 Nasabah Registrasi dan Login:
 
---Nasabah baru mendaftar dengan mengisi nama pengguna dan kata sandi.
+- Nasabah baru mendaftar dengan mengisi nama pengguna dan kata sandi.
 - Nasabah yang sudah terdaftar bisa login dengan nama pengguna dan kata sandi mereka.
 
 Manajemen Akun dan Transaksi:
