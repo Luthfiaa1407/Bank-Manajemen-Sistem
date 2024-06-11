@@ -107,9 +107,29 @@ int main()
 
 bool login()
 {
-    // Bagian login silahkan ngoding disini
+    string username, password;
 
+    cout << "Masukkan username anda: ";
+    cin >> username;
+    cout << "Masukkan password anda: ";
+    cin >> password;
+
+    for (const User& user : users) {
+        if (user.username == username && user.password == password) {
+            activeUser = user;
+            cout << "Login sukses" << endl;
+            cout << "Press Enter to Continue";
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cin.get();
+            return true;
+        }
+    }
+
+    cout << "Password yang anda masukan salah " << endl;
     cout << "Press Enter to Continue";
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    cin.get();
+    return false;
 }
 
 void registerUser()
