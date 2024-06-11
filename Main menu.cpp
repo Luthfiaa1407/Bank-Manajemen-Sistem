@@ -149,10 +149,12 @@ void registerUser()
 
 void cekSaldo()
 {
-    // Bagian cek saldo user silahkan ngoding disini
+    cout << "Hai " << activeUser.name << endl;
+    cout << "Saldo Anda: Rp. " << activeUser.balance << endl;
 
     cout << "Press Enter to Continue";
-    getch();
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    system("cls");
 }
 
 void lihatRiwayat()
