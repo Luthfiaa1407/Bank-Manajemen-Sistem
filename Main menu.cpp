@@ -109,7 +109,7 @@ bool login()
 {
     string username, password;
 
-    cout << "Masukkan username anda: ";
+    cout << "Masukkan nomor rekening anda: ";
     cin >> username;
     cout << "Masukkan password anda: ";
     cin >> password;
@@ -120,9 +120,16 @@ bool login()
             cout << "Login sukses" << endl;
             cout << "Press Enter to Continue";
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cin.get();
+            system("cls");
             return true;
         }
+    }
+
+    cout << "Password yang anda masukan salah " << endl;
+    cout << "Press Enter to Continue";
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    system("cls");
+    return false;
     }
 
     cout << "Password yang anda masukan salah " << endl;
