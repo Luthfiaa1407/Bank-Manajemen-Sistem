@@ -1,10 +1,11 @@
 #include <iostream>
 #include <vector>
+#include <string>
+#include <limits>
 #include <conio.h>
 
 using namespace std;
 
-// blueprint data structure for transaction.
 class Transaction
 {
 public:
@@ -12,7 +13,6 @@ public:
     double amount;
 };
 
-// blueprint data structure for user.
 class User
 {
 public:
@@ -21,10 +21,8 @@ public:
     vector<Transaction> transactions;
 };
 
-// variable list of users
 vector<User> users;
 
-// variable for hold logged user.
 User activeUser;
 
 bool login();
@@ -132,13 +130,6 @@ bool login()
     return false;
     }
 
-    cout << "Password yang anda masukan salah " << endl;
-    cout << "Press Enter to Continue";
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-    cin.get();
-    return false;
-}
-
 void registerUser()
 {
     // Bagian register user silahkan ngoding disini
@@ -159,16 +150,86 @@ void cekSaldo()
 
 void lihatRiwayat()
 {
-    // Bagian lihat riwayat user silahkan ngoding disini
-    
+    cout << "|--------------------------------|" << endl;
+    cout << "\tRiwayat Transaksi : " << endl;
+    cout << "|--------------------------------|" << endl;
+
+    for (const auto& t : activeUser.transactions) {
+        cout << " |Dari: " << t.usernameFrom;
+        cout << " | No.Rek tujuan: " << t.usernameTo;
+        cout << " | Nominal: Rp. " << t.amount << "\n";
+    }
+
     cout << "Press Enter to Continue";
-    getch();
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    system("cls");
 }
 
 void transfer()
 {
-    // Bagian transfer user silahkan ngoding disini
+   string inputUser;
+    double amount;
 
+    cout << "Masukkan No. Rek tujuan : ";
+    cin >> inputUser;
+
+    User userTo;
+    bool found = false;
+    for (User& user : users) {
+        if (user.username == inputUser) {
+            userTo = user;
+            found = true;
+            break;
+        }
+    }
+
+    if (!found) {
+        cout << "User not found!" << endl;
+        cout << "Press Enter to Continue";
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        system("cls");
+        return;
+    }
+
+    cout << "Masukkan nominal transfer : Rp";
+    cin >> amount;
+
+    if (amount > activeUser.balance) {
+        cout << "Saldo tidak cukup!" << endl;
+        cout << "Press Enter to Continue";
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        system("cls");
+        return;
+    }
+    string pin;
+    cout << "Masukkan PIN Anda untuk konfirmasi: ";
+    cin >> pin;
+
+    if (pin != activeUser.pin) {
+        cout << "PIN yang Anda masukkan salah!" << endl;
+        cout << "Press Enter to Continue";
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        system("cls");
+        return;
+    }
+
+    activeUser.balance -= amount;
+    userTo.balance += amount;
+
+    Transaction t;
+    t.usernameFrom = activeUser.username;
+    t.usernameTo = userTo.username;
+    t.amount = amount;
+    activeUser.transactions.push_back(t);
+
+    Transaction t1;
+    t1.usernameFrom = activeUser.username;
+    t1.usernameTo = userTo.username;
+    t1.amount = amount;
+    userTo.transactions.push_back(t1);
+
+    cout << "Transfer sukses!" << endl;
     cout << "Press Enter to Continue";
-    getch();
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    system("cls");
 }
