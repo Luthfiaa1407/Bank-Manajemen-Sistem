@@ -228,8 +228,19 @@ void transfer()
     t1.amount = amount;
     userTo.transactions.push_back(t1);
 
+   
+    system("cls"); // Clear screen
     cout << "Transfer sukses!" << endl;
+
+    // struk transaksi
+    cout << "|-----------------------------------------|" << endl;
+    cout << "|No. Rekening Tujuan: " << userTo.username << endl;
+    cout << "|Jenis Transaksi    : Transfer" << endl;
+    cout << "|Nominal           : Rp " << amount << endl;
+    cout << "|-----------------------------------------|" << endl;
+
     cout << "Press Enter to Continue";
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    cin.get(); 
     system("cls");
 }
