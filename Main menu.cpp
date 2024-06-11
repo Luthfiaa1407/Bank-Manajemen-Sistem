@@ -1,8 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <conio.h>
-#include <sstream>
-#include <string>
 
 using namespace std;
 
@@ -29,68 +27,14 @@ vector<User> users;
 // variable for hold logged user.
 User activeUser;
 
-
-class daftar {
-public:
-    vector<string> nama3;
-    vector<int> pin3;
-
-    string nama2;
-    int pin2;
-    string str;
-
-    bool login() {
-        cout << "Masukkan Username Anda : ";
-        cin.ignore();
-        getline(cin, nama2);
-
-        cout << "Masukkan Pin Anda : ";
-        getline(cin, str);
-        stringstream(str) >> pin2;
-
-        return kebenaran();
-    }
-
-    void registerUser() {
-        string nama;
-        int pin;
-
-        cout << "Masukkan username anda : ";
-        cin.ignore();
-        getline(cin, nama);
-
-        cout << "\nMasukkan Pin anda : ";
-        getline(cin, str);
-        stringstream(str) >> pin;
-
-        nama3.push_back(nama);
-        pin3.push_back(pin);
-
-        cout << "Akun anda Sukses dibuat!";
-        getch(); 
-    }
-
-
-    bool kebenaran() {
-        for (size_t i = 0; i < nama3.size(); i++) {
-            if (nama3[i] == nama2 && pin3[i] == pin2) {
-                return true;
-            }
-            else{
-            	return false;
-			}
-        }
-        
-    }
-};
-
+bool login();
+void registerUser();
 void cekSaldo();
 void lihatRiwayat();
 void transfer();
 
 int main()
 {
-    daftar df;
     bool active = true;
     while (active)
     {
@@ -110,8 +54,7 @@ int main()
         {
         case 1:
         {
-            bool isSuccessLogin = df.login();
-            df.kebenaran();
+            bool isSuccessLogin = login();
             if (isSuccessLogin)
             {
                 bool sesiLogin = true;
@@ -151,7 +94,7 @@ int main()
         }
         break;
         case 2:
-            df.registerUser();
+            registerUser();
             break;
         case 3:
             active = false;
@@ -162,8 +105,20 @@ int main()
     }
 }
 
+bool login()
+{
+    // Bagian login silahkan ngoding disini
 
+    cout << "Press Enter to Continue";
+}
 
+void registerUser()
+{
+    // Bagian register user silahkan ngoding disini
+ 
+    cout << "Press Enter to Continue";
+    getch();
+}
 
 void cekSaldo()
 {
