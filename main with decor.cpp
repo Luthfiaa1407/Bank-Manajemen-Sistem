@@ -43,6 +43,7 @@ int main()
         cout << "|=================================|" << endl;
         cout << "|>>>>>|  The Central Bank  |<<<<<<|" << endl;
         cout << "|=================================|" << endl;
+        cout << "|Pilih menu:                      |" << endl;
         cout << "| 1. Login" << "                        |"<< endl;
         cout << "| 2. Registrasi" << "                   |"<< endl;
         cout << "| 3. Exit" << "                         |"<<endl;
@@ -65,12 +66,12 @@ int main()
                     int input2;
                     cout << endl;
                     cout << "|---------------------------------|" << endl;
-                    cout << "| Hai " << activeUser.name << ", Selamat datang" << endl;
+                    cout << "\t Hai " << activeUser.name << ", Selamat datang" << endl;
                     cout << "|---------------------------------|" << endl;
-                    cout << "| 1. Cek Saldo" << endl;
-                    cout << "| 2. Lihat Riwayat Transaksi" << endl;
-                    cout << "| 3. Transfer Dana" << endl;
-                    cout << "| 4. Logout" << endl;
+                    cout << "| 1. Cek Saldo                    |" << endl;
+                    cout << "| 2. Lihat Riwayat Transaksi      |" << endl;
+                    cout << "| 3. Transfer Dana                |" << endl;
+                    cout << "| 4. Logout                       |" << endl;
                     cout << "|---------------------------------|" << endl;
                     cout << "| Input: ";
                     cin >> input2;
@@ -112,6 +113,7 @@ bool login()
 	
 	cout << endl;
 	cout << endl;
+	cout <<"|-------------------*LOGIN*--------------------|\n" << endl;
     cout << " > Masukkan nomor rekening anda: ";
     cin >> username;
     cout << " > Masukkan password anda: ";
@@ -148,6 +150,7 @@ void registerUser() {
 	
 	cout << endl;
 	cout << endl;
+	cout <<"|-------------------*REGISTRASI*--------------------|\n" << endl;
     cout << " > Masukkan nomor rekening anda: ";
     cin >> user.username;
     cout << " > Masukkan password anda: ";
@@ -176,9 +179,9 @@ void cekSaldo()
 {
 	system("cls");
 	cout << endl;
-	cout << "|--------------------------------|" << endl;
-    cout << "     Hai " << activeUser.name << endl;
-    cout << "     Saldo Anda: Rp. " << activeUser.balance << endl;
+	cout << "|------------*SALDO*-------------|" << endl;
+    cout << "\t Hai " << activeUser.name << endl;
+    cout << "\tSaldo Anda: Rp. " << activeUser.balance << endl;
 	cout << "|--------------------------------|" << endl;
 	
 	cout << endl;
@@ -192,16 +195,14 @@ void lihatRiwayat()
 {
 	system("cls");
 	cout << endl;
-    cout << "|--------------------------------|" << endl;
     cout << "\tRiwayat Transaksi : " << endl;
-    cout << "|--------------------------------|" << endl;
 
     for (const auto& t : activeUser.transactions) {
     	cout << endl;
     	cout << "|==============================|" << endl;
-        cout << " |   Dari: " << t.usernameFrom << endl;
-        cout << " |   No.Rek tujuan: " << t.usernameTo << endl;
-        cout << " |   Nominal: Rp. " << t.amount << "\n";
+        cout << "\tDari: " << t.usernameFrom << endl;
+        cout << "\tNo.Rek tujuan: " << t.usernameTo << endl;
+        cout << "\tNominal: Rp. " << t.amount << "\n";
         cout << "|==============================|" << endl;
     }
 
@@ -219,6 +220,7 @@ void transfer()
 	
 	cout << endl;
 	cout << endl;
+	cout <<"|-------------------*TRANSFER*--------------------|\n" << endl;
     cout << " > Masukkan No. Rek tujuan : ";
     cin >> inputUser;
 
@@ -246,7 +248,9 @@ void transfer()
     cin >> amount;
 
     if (amount > activeUser.balance) {
-        cout << "Saldo tidak cukup!" << endl;
+    	cout <<"|---------------------------------------|" << endl;
+        cout << "\tSaldo tidak cukup!" << endl;
+        cout <<"|---------------------------------------|" << endl;
         cout << "Press Enter to Back";
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         getch();
@@ -257,12 +261,16 @@ void transfer()
     system("cls");
     string pin;
     cout << endl;
+    cout <<"|-----------------Konfirmasi----------------------|\n" << endl;
     cout << " > Masukkan PIN Anda untuk konfirmasi: ";
     cin >> pin;
+    cout <<"|---------------------------------------|"<< endl;
 
     if (pin != activeUser.pin) {
     	cout << endl;
+    	cout <<"|---------------------------------------|" << endl;
         cout << "PIN yang Anda masukkan salah!" << endl;
+        cout <<"|---------------------------------------|" << endl;
         cout << "Press Enter to Back";
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         getch();
@@ -292,9 +300,9 @@ void transfer()
     cout <<"            Transfer sukses!" << endl;
 
     cout << "|=========================================|" << endl;
-    cout << "|  No. Rekening Tujuan: " << userTo.username << endl;
-    cout << "|  Jenis Transaksi    : Transfer" << endl;
-    cout << "|  Nominal           : Rp " << amount << endl;
+    cout << "\tNo. Rekening Tujuan: " << userTo.username << endl;
+    cout << "\tJenis Transaksi    : Transfer" << endl;
+    cout << "\tNominal            : Rp " << amount << endl;
     cout << "|=========================================|" << endl;
 
 	cout << endl;
