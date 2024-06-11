@@ -134,12 +134,26 @@ bool login()
     return false;
     }
 
-void registerUser()
-{
-    // Bagian register user silahkan ngoding disini
- 
+void registerUser() {
+    User user;
+
+    cout << "Masukkan nomor rekening anda: ";
+    cin >> user.username;
+    cout << "Masukkan password anda: ";
+    cin >> user.password;
+    cout << "Masukkan nama anda: ";
+    cin >> user.name;
+    cout << "Masukkan pin anda: ";
+    cin >> user.pin;
+    cout << "Tambahkan saldo: ";
+    cin >> user.balance;
+
+    users.push_back(user);
+
     cout << "Press Enter to Continue";
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
     getch();
+    system("cls");
 }
 
 void cekSaldo()
