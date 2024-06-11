@@ -154,6 +154,7 @@ void registerUser() {
 
 void cekSaldo()
 {
+    system("cls");
     cout << "Hai " << activeUser.name << endl;
     cout << "Saldo Anda: Rp. " << activeUser.balance << endl;
 
@@ -165,6 +166,7 @@ void cekSaldo()
 
 void lihatRiwayat()
 {
+    system("cls");
     cout << "|--------------------------------|" << endl;
     cout << "\tRiwayat Transaksi : " << endl;
     cout << "|--------------------------------|" << endl;
@@ -172,7 +174,7 @@ void lihatRiwayat()
     for (const auto& t : activeUser.transactions) {
         cout << " |Dari: " << t.usernameFrom;
         cout << " | No.Rek tujuan: " << t.usernameTo;
-        cout << " | Nominal: Rp. " << t.amount << "\n";
+        cout << " | Nominal: Rp." << t.amount << "\n";
     }
 
     cout << "Press Enter to Continue";
@@ -183,7 +185,8 @@ void lihatRiwayat()
 
 void transfer()
 {
-   string inputUser;
+    system("cls");
+    string inputUser;
     double amount;
 
     cout << "Masukkan No. Rek tujuan : ";
