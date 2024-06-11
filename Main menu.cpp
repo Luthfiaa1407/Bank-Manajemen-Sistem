@@ -46,6 +46,7 @@ int main()
         cout << "|--------------" << endl;
         cout << "| Your input: ";
         cin >> input;
+        getch();
         system("cls");
 
         switch (input)
@@ -86,6 +87,7 @@ int main()
                         sesiLogin = false;
                         break;
                     }
+                    getch();
                     system("cls");
                 }
             }
@@ -98,7 +100,7 @@ int main()
             active = false;
             break;
         }
-
+        getch();
         system("cls");
     }
 }
@@ -118,6 +120,7 @@ bool login()
             cout << "Login sukses" << endl;
             cout << "Press Enter to Continue";
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            getch();
             system("cls");
             return true;
         }
@@ -126,6 +129,7 @@ bool login()
     cout << "Password yang anda masukan salah " << endl;
     cout << "Press Enter to Continue";
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    getch();
     system("cls");
     return false;
     }
@@ -145,6 +149,7 @@ void cekSaldo()
 
     cout << "Press Enter to Continue";
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    getch();
     system("cls");
 }
 
@@ -162,6 +167,7 @@ void lihatRiwayat()
 
     cout << "Press Enter to Continue";
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    getch();
     system("cls");
 }
 
@@ -187,6 +193,7 @@ void transfer()
         cout << "User not found!" << endl;
         cout << "Press Enter to Continue";
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        getch();
         system("cls");
         return;
     }
@@ -198,6 +205,7 @@ void transfer()
         cout << "Saldo tidak cukup!" << endl;
         cout << "Press Enter to Continue";
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        getch();
         system("cls");
         return;
     }
@@ -209,6 +217,7 @@ void transfer()
         cout << "PIN yang Anda masukkan salah!" << endl;
         cout << "Press Enter to Continue";
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        getch();
         system("cls");
         return;
     }
@@ -229,7 +238,7 @@ void transfer()
     userTo.transactions.push_back(t1);
 
    
-    system("cls"); // Clear screen
+    system("cls"); 
     cout << "Transfer sukses!" << endl;
 
     // struk transaksi
@@ -241,6 +250,6 @@ void transfer()
 
     cout << "Press Enter to Continue";
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
-    cin.get(); 
+    getch();
     system("cls");
 }
