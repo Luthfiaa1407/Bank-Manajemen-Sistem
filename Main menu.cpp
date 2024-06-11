@@ -172,8 +172,8 @@ void lihatRiwayat()
     cout << "|--------------------------------|" << endl;
 
     for (const auto& t : activeUser.transactions) {
-        cout << " |Dari: " << t.usernameFrom;
-        cout << " | No.Rek tujuan: " << t.usernameTo;
+        cout << " | Dari: " << t.usernameFrom << endl;
+        cout << " | No.Rek tujuan: " << t.usernameTo << endl;
         cout << " | Nominal: Rp." << t.amount << "\n";
     }
 
