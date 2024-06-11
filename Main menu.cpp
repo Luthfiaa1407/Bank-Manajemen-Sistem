@@ -46,7 +46,6 @@ int main()
         cout << "|--------------" << endl;
         cout << "| Your input: ";
         cin >> input;
-        getch();
         system("cls");
 
         switch (input)
@@ -71,7 +70,6 @@ int main()
                     cout << "|---------------------------------|" << endl;
                     cout << "| Input: ";
                     cin >> input2;
-                    system("cls");
                     switch (input2)
                     {
                     case 1:
@@ -87,7 +85,6 @@ int main()
                         sesiLogin = false;
                         break;
                     }
-                    getch();
                     system("cls");
                 }
             }
@@ -100,7 +97,6 @@ int main()
             active = false;
             break;
         }
-        getch();
         system("cls");
     }
 }
@@ -223,6 +219,8 @@ void transfer()
         system("cls");
         return;
     }
+
+    system("cls");
     string pin;
     cout << "Masukkan PIN Anda untuk konfirmasi: ";
     cin >> pin;
@@ -255,7 +253,6 @@ void transfer()
     system("cls"); 
     cout << "Transfer sukses!" << endl;
 
-    // struk transaksi
     cout << "|-----------------------------------------|" << endl;
     cout << "|No. Rekening Tujuan: " << userTo.username << endl;
     cout << "|Jenis Transaksi    : Transfer" << endl;
